@@ -4,14 +4,10 @@ import java.io.IOException;
 
 public class Day2a {
     private int[] codes;
-    public int[] testCodes = {1,9,10,3,2,3,11,0,99,30,40,50};
 
     public Day2a() {
         try {
             codes = utility.ReadInput.parseLineOfInts("/Users/bjornar.risdalen/IdeaProjects/AoC2019/brisdalen/src/day2/input2");
-            // before running the program, replace position 1 with the value 12 and replace position 2 with the value 2
-            codes[1] = 12;
-            codes[2] = 2;
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -25,7 +21,7 @@ public class Day2a {
             System.out.print(i + ",");
         }
 
-        codes = intencode(codes);
+        codes = intencode(codes, 12, 2);
 
         System.out.println();
         System.out.print("after opcode1: ");
@@ -36,7 +32,10 @@ public class Day2a {
         System.out.println("Solution: " + codes[0]);
     }
 
-    public int[] intencode(int[] input) {
+    public int[] intencode(int[] input, int noun, int verb) {
+        // before running the program, replace position 1 with the value 12 and replace position 2 with the value 2
+        input[1] = noun;
+        input[2] = verb;
         for(int i = 0; i < input.length; i += 4) {
             if(input[i] == 99) {
                 break;

@@ -6,6 +6,7 @@ public class Day2Solutions {
         Day2a day2a = new Day2a();
         day2a.solve();
 
-        
+        Day2b day2b = new Day2b();
+        day2b.solve();
     }
 }

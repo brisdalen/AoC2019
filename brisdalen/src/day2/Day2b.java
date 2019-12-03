@@ -23,8 +23,23 @@ public class Day2b {
 
     private int min = 0;
     private int max = 99;
+    private int target = 19690720;
 
     public void solve() {
+        Day2a day2a = new Day2a();
+        int[] initialState = day2a.getCodes();
 
+        for(int verb = min; verb <= max; verb++) {
+            for(int noun = min; noun <= max; noun++) {
+                int codes[] = initialState.clone();
+                codes = day2a.intencode(codes, noun, verb);
+                if(codes[0] == target) {
+                    System.out.println("Noun: " + noun);
+                    System.out.println("Verb: " + verb);
+                    System.out.println("Solution: " + (100 * noun + verb));
+                    break;
+                }
+            }
+        }
     }
 }
