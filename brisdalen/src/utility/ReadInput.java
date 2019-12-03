@@ -31,4 +31,20 @@ public class ReadInput {
             return numbers.stream().mapToInt(Integer::valueOf).toArray();
         }
     }
+
+    public static String[][] parseStrings(String filepath) throws IOException {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filepath))) {
+            String[] wires = new String[2];
+            wires[0] = reader.readLine();
+            wires[1] = reader.readLine();
+
+            String[] directions1 = wires[0].split(",");
+            String[] directions2 = wires[1].split(",");
+
+
+            String commands[][] = {directions1, directions2};
+
+            return commands;
+        }
+    }
 }
