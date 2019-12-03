@@ -18,4 +18,17 @@ public class ReadInput {
             return lines.stream().mapToInt(Integer::valueOf).toArray();
         }
     }
+
+    public static int[] parseLineOfInts(String filepath) throws IOException {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filepath))) {
+            ArrayList<Integer> numbers = new ArrayList<>();
+
+            String[] input = reader.readLine().split(",");
+            for(String s : input) {
+                numbers.add(Integer.parseInt(s));
+            }
+
+            return numbers.stream().mapToInt(Integer::valueOf).toArray();
+        }
+    }
 }
