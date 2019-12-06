@@ -14,7 +14,10 @@ public class Day4a {
     }
 
     public void solve() {
+        long start = System.currentTimeMillis();
         System.out.println("Solution: " + validPasswords(low, high));
+        long end = System.currentTimeMillis();
+        System.out.println("Elapsed time: " + (end - start));
     }
 
     public int validPasswords(int low, int high) {
