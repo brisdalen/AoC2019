@@ -1,6 +1,9 @@
 package utility;
 
 import java.io.*;
+import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class ReadInput {
@@ -29,6 +32,27 @@ public class ReadInput {
             }
 
             return numbers.stream().mapToInt(Integer::valueOf).toArray();
+        }
+    }
+
+    public String[][] parseStrings(String filepath) throws IOException {
+        File file1 = new File("");
+        String path = file1.getCanonicalPath() + "/brisdalen/src/day3/" + filepath;
+        File input = new File(path);
+        System.out.println("C:\\Users\\Bjørnar\\IdeaProjects\\AoC2019\\AoC2019\\brisdalen\\src\\day3\\input3");
+        System.out.println(input.getPath());
+        try (BufferedReader reader = new BufferedReader(new FileReader(input))) {
+            String[] wires = new String[2];
+            wires[0] = reader.readLine();
+            wires[1] = reader.readLine();
+
+            String[] directions1 = wires[0].split(",");
+            String[] directions2 = wires[1].split(",");
+
+
+            String commands[][] = {directions1, directions2};
+
+            return commands;
         }
     }
 }
